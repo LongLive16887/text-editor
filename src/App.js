@@ -21,7 +21,7 @@ const parseLines = (text) => {
 
 function App() {
   const [data, setData] = useState(''); // Инициализируем пустой строкой
-  const [results, setResults] = useState([]); // Инициализируем пустым массивом
+  const [results, setResults] = useState([]); // Инициализируем пустым массиво
 
   const handleInputChange = ({ target: { value } }) => {
     setData(value);
