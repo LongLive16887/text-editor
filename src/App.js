@@ -15,7 +15,7 @@ const parseLines = (text) => {
   for(let x = 0; x < 32; x+=2){
     results.push(`${x/2+1}. ${newnonEmptyLines[x]} vs ${newnonEmptyLines[x+1]}`)
   }
-  //main
+  //TEST
   return(results);
 }
 
