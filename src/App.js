@@ -51,12 +51,21 @@ function App() {
     setError("");
   };
 
-  const handleCopyResults = () => {
+  const copyWithoutSpaces = () => {
     const textToCopy = results.join("\n");
     navigator.clipboard.writeText(textToCopy)
-      .then(() => alert("Qura saqlandi :)"))
+      .then(() => alert("Qura bo'sh qatorlarsiz saqlandi :)"))
       .catch(() => alert("Qura saqlanmadi :("));
   };
+
+  const copyWithSpaces = () => {
+    const textToCopy = results.join("\n\n");
+    navigator.clipboard.writeText(textToCopy)
+      .then(() => alert("Qura bo'sh qatorlar bilan saqlandi :)"))
+      .catch(() => alert("Qura saqlanmadi :("));
+  };
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -180,9 +189,14 @@ function App() {
 
       {results.length > 0 && (
         <div className="results">
-          <button onClick={handleCopyResults} className="button-65" style={{margin: "0px"}}>
-          Copy
-        </button>
+          <div>
+          <button onClick={copyWithSpaces} className="button-65" style={{margin: "0px"}}>
+            Copy
+          </button>
+          <button onClick={copyWithoutSpaces} className="button-65" style={{margin: "0px",backgroundColor: "green", marginLeft: "1rem"}}>
+            Copy
+          </button>
+          </div>
           <h2 style={{margin: "0px"}}>Qura natijalari:</h2>
           {results.map((line, index) => (
             <p key={index}>{line}</p>
