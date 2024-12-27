@@ -54,8 +54,8 @@ function App() {
   const handleCopyResults = () => {
     const textToCopy = results.join("\n");
     navigator.clipboard.writeText(textToCopy)
-      .then(() => alert("Результаты скопированы!"))
-      .catch(() => alert("Не удалось скопировать результаты."));
+      .then(() => alert("Qura saqlandi :)"))
+      .catch(() => alert("Qura saqlanmadi :("));
   };
 
   const handleSubmit = (e) => {
@@ -171,17 +171,17 @@ function App() {
 
         {error && <p style={{ color: "red" }}>{error}</p>}
         <div className='wrapper-div'>
-          <button type="submit" className="button-65" style={{"marginRight": "1rem"}}>Qura</button>
-          {results.length > 0 && (
-            <button onClick={handleCopyResults} className="button-65">
-              Copy
-            </button>
-          )}
+          <button type="submit" className="button-65">Qura</button>
         </div>
       </form>
 
+      
+
       {results.length > 0 && (
         <div className="results">
+          <button onClick={handleCopyResults} className="button-65" style={{margin: "0px"}}>
+          Copy
+        </button>
           <h2 style={{margin: "0px"}}>Qura natijalari:</h2>
           {results.map((line, index) => (
             <p key={index}>{line}</p>
