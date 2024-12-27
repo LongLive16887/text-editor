@@ -108,6 +108,7 @@ function App() {
       <a href="https://t.me/eF_Teams">@ef_teams <i className="fa-brands fa-telegram" style={{"color": "#74C0FC"}}></i></a>
       <p>Talab va takliflar uchun 👇</p>
       <a href="https://t.me/shoha_op">@shoha_op <i className="fa-brands fa-telegram" style={{"color": "#74C0FC"}}></i></a>
+      <a href="https://t.me/efteams_info/972">Foydalanish uchun qo'llanma <i className="fa-brands fa-telegram" style={{"color": "#74C0FC"}}></i></a>
       <form onSubmit={handleSubmit}>
         <select value={type} onChange={handleTypeChange} className="form-field select">
           <option value="">Turini tanlang</option>
