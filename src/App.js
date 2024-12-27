@@ -2,10 +2,12 @@ import './App.css';
 import { useState, useEffect } from "react";
 
 const shuffleArray = (array) => {
-  return array
-    .map(value => ({ value, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ value }) => value);
+  const result = [...array];
+  for (let i = result.length - 1; i > 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+    [result[i], result[randomIndex]] = [result[randomIndex], result[i]];
+  }
+  return result;
 };
 
 function App() {
@@ -47,6 +49,13 @@ function App() {
   const handleCountChange = (e) => {
     setCount(Number(e.target.value));
     setError("");
+  };
+
+  const handleCopyResults = () => {
+    const textToCopy = results.join("\n");
+    navigator.clipboard.writeText(textToCopy)
+      .then(() => alert("Результаты скопированы!"))
+      .catch(() => alert("Не удалось скопировать результаты."));
   };
 
   const handleSubmit = (e) => {
@@ -106,7 +115,6 @@ function App() {
           <option value="battle">Battle</option>
         </select>
 
-
         {(type === "tournament" || type === "battle") && (
           <div>
             <label>
@@ -161,20 +169,26 @@ function App() {
           </>
         )}
 
-        
-
         {error && <p style={{ color: "red" }}>{error}</p>}
-        <button type="submit" className="button-65">Qura</button>
+        <div className='wrapper-div'>
+          <button type="submit" className="button-65" style={{"marginRight": "1rem"}}>Qura</button>
+          {results.length > 0 && (
+            <button onClick={handleCopyResults} className="button-65">
+              Copy
+            </button>
+          )}
+        </div>
       </form>
 
       {results.length > 0 && (
         <div className="results">
-          <h2>Qura natijalari:</h2>
+          <h2 style={{margin: "0px"}}>Qura natijalari:</h2>
           {results.map((line, index) => (
             <p key={index}>{line}</p>
           ))}
         </div>
       )}
+      
     </div>
   );
 }

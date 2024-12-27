@@ -76,8 +76,8 @@ form{
 }
 
 button{
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 p{
@@ -86,8 +86,13 @@ p{
 }
 
 
+.wrapper-div{
+  width: 100%;
+}
+
 /* CSS */
 .button-65 {
+  width: auto;
   appearance: none;
   backface-visibility: hidden;
   background-color: #2f80ed;
@@ -106,7 +111,7 @@ p{
   line-height: 1.5;
   outline: none;
   overflow: hidden;
-  padding: 14px 30px;
+  padding: 0.5rem 1rem;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -117,7 +122,6 @@ p{
   touch-action: manipulation;
   vertical-align: top;
   white-space: nowrap;
-  width: auto;
 }
 
 .button-65:hover {
@@ -145,6 +149,5 @@ p{
 @media (min-width: 768px) {
   .button-65 {
     padding: 14px 22px;
-    width: 12%;
   }
 }
